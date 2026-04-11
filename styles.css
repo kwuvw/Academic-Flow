@@ -431,37 +431,35 @@ h1 {
   }
 }
 
-/* Стили для нового списка групп */
 .group-task-list {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Отступ между строками */
+    gap: 20px; 
     margin-top: 20px;
 }
 
 .group-task-item {
     display: flex;
     align-items: center;
-    gap: 40px; /* Расстояние между названием группы и кнопкой */
+    gap: 40px; 
 }
 
 .group-id {
     font-size: 1.5rem;
     font-weight: 900;
-    min-width: 100px; /* Фиксированная ширина, чтобы кнопки стояли в ряд */
+    min-width: 100px; 
     color: var(--black-fg);
 }
 
 .group-btn {
-    flex-grow: 1; /* Кнопка растягивается */
-    max-width: 400px; /* Ограничил ширину, чтобы не была на весь экран */
-    border-radius: 14px; /* Более мягкое скругление как на скрине */
+    flex-grow: 1; 
+    max-width: 400px; 
+    border-radius: 14px; 
     font-size: 0.95rem;
     font-weight: 600;
     text-transform: none;
 }
 
-/* Адаптив для мобилок */
 @media (max-width: 600px) {
     .group-task-item {
         flex-direction: column;
@@ -473,4 +471,138 @@ h1 {
         width: 100%;
         max-width: none;
     }
+}
+
+.content-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; 
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.02em;
+}
+
+.form-subtitle {
+    color: var(--grey-hint);
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0 0 20px 0;
+    max-width: 500px; 
+}
+
+.input-field-light {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    transition: box-shadow 0.2s ease;
+}
+
+.input-field-light:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--orange-primary);
+}
+
+.text-area {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.date-range {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.date-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.date-group label {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: lowercase;
+}
+
+.date-input {
+    max-width: 180px;
+}
+
+.file-upload-wrapper {
+    margin-top: 10px;
+}
+
+.file-label {
+    display: inline-flex;
+    cursor: pointer;
+    min-width: 280px;
+    justify-content: center;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.group-task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.group-task-item {
+    display: grid;
+    grid-template-columns: 140px 400px; 
+    align-items: center;
+    gap: 20px;
+}
+
+.group-id {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.btn-link {
+    text-decoration: none !important;
+}
+
+.group-btn {
+    width: 100% !important;
+}
+
+.content-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 28px;
+}
+
+.form-section {
+    margin-bottom: 48px;
+}
+
+.input-field-light {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="header">
+  <a class="logo" href="/teacherFilesFoldter/dashboard_teacher.html">ACADEMIC FLOW</a>
+  <nav class="nav">
+    <a href="/teacherFilesFoldter/dashboard_teacher.html">Главная</a>
+    <a href="#">Студенты</a>
+    <a class="active" href="#">Группы</a>
+  </nav>
+  <div class="profile">
+    <span>Алена Советникова</span>
+    <span class="avatar">👤</span>
+  </div>
+</header>
+
+<main class="content-container">
+  <form class="task-form">
+    <section class="form-section">
+      <h1 class="form-title">Название вашего задания</h1>
+      <p class="form-subtitle">Добавляйте название для ваших заданий, что бы студентам было легче ориентироваться</p>
+      <input type="text" class="input-field-light" placeholder="Введите название...">
+    </section>
+
+    <section class="form-section">
+      <h2 class="form-title">Описание задания*</h2>
+      <p class="form-subtitle">В описании вы можете подробно расписать как сдавать вам данное задание (необязательное поле)</p>
+      <textarea class="input-field-light text-area" placeholder="Опишите задачу..."></textarea>
+    </section>
+
+    <section class="form-section">
+      <h2 class="form-title">Дата выполнения</h2>
+      <p class="form-subtitle">Введите дату, что бы студенты точно знали когда сдавать!</p>
+      <div class="date-range">
+        <div class="date-group">
+          <label>С</label>
+          <input type="date" class="input-field-light date-input">
+        </div>
+        <div class="date-group">
+          <label>до</label>
+          <input type="date" class="input-field-light date-input">
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2 class="form-title">Прикрепите файл задания</h2>
+      <p class="form-subtitle">В файле задания может быть полное техническое задание, код, обучающие материалы и т.п. Поддерживаемый формат: PDF</p>
+      <div class="file-upload-wrapper">
+        <input type="file" id="file-input" hidden>
+        <label for="file-input" class="btn-primary file-label">Прикрепить файл</label>
+      </div>
+    </section>
+  </form>
+</main>
+</body>
+</html>

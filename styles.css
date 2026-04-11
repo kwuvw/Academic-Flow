@@ -430,3 +430,47 @@ h1 {
     padding: 20px;
   }
 }
+
+/* Стили для нового списка групп */
+.group-task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Отступ между строками */
+    margin-top: 20px;
+}
+
+.group-task-item {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Расстояние между названием группы и кнопкой */
+}
+
+.group-id {
+    font-size: 1.5rem;
+    font-weight: 900;
+    min-width: 100px; /* Фиксированная ширина, чтобы кнопки стояли в ряд */
+    color: var(--black-fg);
+}
+
+.group-btn {
+    flex-grow: 1; /* Кнопка растягивается */
+    max-width: 400px; /* Ограничил ширину, чтобы не была на весь экран */
+    border-radius: 14px; /* Более мягкое скругление как на скрине */
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: none;
+}
+
+/* Адаптив для мобилок */
+@media (max-width: 600px) {
+    .group-task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .group-btn {
+        width: 100%;
+        max-width: none;
+    }
+}

@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hasError) {
             alert('Пожалуйста, заполните поля корректно');
         } else {
-            window.location.href = 'role_select.html';
+            window.location.href = 'registerFiles/role_select.html';
         }
     });
 });

@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // Если ошибок нет — скрываем текст ошибки и переходим
             errorMessage.style.display = 'none';
-            window.location.href = 'dashboard_student.html'; // Добавили .html
+            window.location.href = '/studentFilesFolder/dashboard_student.html'; // Добавили .html
         }
     });
 });

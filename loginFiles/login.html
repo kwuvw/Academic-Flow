@@ -1,45 +1,48 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edu Platform - Login</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/loginFiles/validationLogin.js"></script>
-  </head>
-  <body>
-    <main class="page-center">
-      <section class="stack">
-        <h1>
-          Продолжай заниматься <span class="marker">учебой</span><br />
-          с нами
-        </h1>
-        <form class="form-card">
-          <div class="form-group">
-            <label for="name">Имя</label>
-            <input id="name" class="input-field" type="text" placeholder="Ваше имя" />
-          </div>
-          <p id="error-message" style="color: #FF3B30; display: none;"></p>
-          <div class="form-group">
-            <label for="email">Почта</label>
-            <input id="email" class="input-field" type="email" placeholder="mail@example.com" />
-          </div>
-            <div class="form-group">
-            <label for="password">Пароль</label>
-            <input id="password" class="input-field" type="password" placeholder="********" />
-          </div>
-          <div class="form-group">
-            <label for="group">Группа</label>
-            <input id="group" class="input-field" type="text" placeholder="ИС-101" />
-          </div>
-          
 
-          <button type="submit" class="btn-primary">Войти</button>
-          <p class="auth-footnote">
-            Еще нет аккаунта? <a href="/registerFiles/register.html">Регистрация</a>
-          </p>
-        </form>
-      </section>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edu Platform - Login</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/loginFiles/validationLogin.js"></script>
+</head>
+
+<body>
+  <main class="page-center">
+    <section class="stack">
+      <h1>
+        Продолжай заниматься <span class="marker">учебой</span><br />
+        с нами
+      </h1>
+      <form class="form-card">
+        <div class="form-group">
+          <label for="name">Имя</label>
+          <input id="name" class="input-field" type="text" placeholder="Ваше имя" />
+        </div>
+        <p id="error-message" style="color: #FF3B30; display: none;"></p>
+        <div class="form-group">
+          <label for="email">Почта</label>
+          <input id="email" class="input-field" type="email" placeholder="mail@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input id="password" class="input-field" type="password" placeholder="********" />
+        </div>
+        <div class="form-group">
+          <label for="group">Группа</label>
+          <input id="group" class="input-field" type="text" placeholder="ИС-101" />
+        </div>
+
+
+        <button type="submit" class="btn-primary">Войти</button>
+        <p class="auth-footnote">
+          Еще нет аккаунта? <a href="/registerFiles/register.html">Регистрация</a>
+        </p>
+      </form>
+    </section>
+  </main>
+</body>
+
 </html>

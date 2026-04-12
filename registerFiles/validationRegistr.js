@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (event) => {
         // Обязательно отменяем стандартный переход, чтобы проверить поля
-        event.preventDefault(); 
-        
+        event.preventDefault();
+
         let hasError = false;
 
         // Проверка Имени

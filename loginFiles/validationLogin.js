@@ -1,45 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form-card');
-    const nameInput = document.querySelector('#name');
     const emailInput = document.querySelector('#email');
     const passwordInput = document.querySelector('#password');
-    const errorMessage = document.querySelector('#error-message');
 
-    function validateEmail(email) {
-        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return pattern.test(email);
-    }
+    const showError = (input, message) => {
+        input.classList.add('error');
+        let errorSpan = input.parentElement.querySelector('.error-text');
 
-    form.addEventListener('submit', (event) => {
-        // Останавливаем стандартную отправку, чтобы проверить данные
-        event.preventDefault(); 
-        
-        let hasError = false;
+        if (!errorSpan) {
+            errorSpan = document.createElement('span');
+            errorSpan.classList.add('error-text');
+            input.parentElement.appendChild(errorSpan);
+        }
+        errorSpan.textContent = message;
+    };
 
-        // Проверка имени
-        if (nameInput.value.trim() === "") {
-            nameInput.classList.add('error');
-            hasError = true;
+    const clearError = (input) => {
+        input.classList.remove('error');
+        const errorSpan = input.parentElement.querySelector('.error-text');
+        if (errorSpan) {
+            errorSpan.remove();
+        }
+    };
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+            showError(emailInput, 'Введите корректный email');
+            isValid = false;
         } else {
-            nameInput.classList.remove('error');
+            clearError(emailInput);
         }
 
-        // Проверка почты
-        if (!validateEmail(emailInput.value)) {
-            emailInput.classList.add('error');
-            hasError = true;
+        if (passwordInput.value.length < 6) {
+            showError(passwordInput, 'Пароль должен быть не менее 6 символов');
+            isValid = false;
         } else {
-            emailInput.classList.remove('error');
+            clearError(passwordInput);
         }
 
-        if (hasError) {
-            // Показываем сообщение об ошибке вместо alert
-            errorMessage.textContent = 'Пожалуйста, заполните поля корректно';
-            errorMessage.style.display = 'block';
-        } else {
-            // Если ошибок нет — скрываем текст ошибки и переходим
-            errorMessage.style.display = 'none';
-            window.location.href = '/studentFilesFolder/dashboard_student.html'; // Добавили .html
+        if (isValid) {
+            window.location.href = '/studentFilesFolder/dashboard_student.html';
         }
     });
 });

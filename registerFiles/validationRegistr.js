@@ -1,47 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form-card');
-    const firstNameInput = document.querySelector('#first-name');
-    const lastNameInput = document.querySelector('#last-name');
-    const emailInput = document.querySelector('#email');
+    const firstName = document.querySelector('#first-name');
+    const lastName = document.querySelector('#last-name');
+    const email = document.querySelector('#email');
+    const password = document.querySelector('#password');
+    // Предположим, у тебя есть поле confirm-password в HTML
+    const confirmPassword = document.querySelector('#confirm-password');
 
-    function validateEmail(email) {
-        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return pattern.test(email);
-    }
-
-    form.addEventListener('submit', (event) => {
-        // Обязательно отменяем стандартный переход, чтобы проверить поля
-        event.preventDefault();
-
-        let hasError = false;
-
-        // Проверка Имени
-        if (firstNameInput.value.trim() === "") {
-            firstNameInput.classList.add('error');
-            hasError = true;
-        } else {
-            firstNameInput.classList.remove('error');
+    const showError = (input, message) => {
+        input.classList.add('error');
+        let errorSpan = input.nextElementSibling;
+        if (!errorSpan || !errorSpan.classList.contains('error-text')) {
+            errorSpan = document.createElement('span');
+            errorSpan.classList.add('error-text');
+            input.parentNode.insertBefore(errorSpan, input.nextSibling);
         }
+        errorSpan.textContent = message;
+    };
 
-        // Проверка Фамилии
-        if (lastNameInput.value.trim() === "") {
-            lastNameInput.classList.add('error');
-            hasError = true;
-        } else {
-            lastNameInput.classList.remove('error');
+    const clearError = (input) => {
+        input.classList.remove('error');
+        const errorSpan = input.nextElementSibling;
+        if (errorSpan && errorSpan.classList.contains('error-text')) {
+            errorSpan.remove();
         }
+    };
 
-        // Проверка почты
-        if (!validateEmail(emailInput.value)) {
-            emailInput.classList.add('error');
-            hasError = true;
-        } else {
-            emailInput.classList.remove('error');
-        }
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
 
-        if (hasError) {
-            alert('Пожалуйста, заполните поля корректно');
-        } else {
+        if (firstName.value.trim().length < 2) {
+            showError(firstName, 'Введите имя');
+            isValid = false;
+        } else clearError(firstName);
+
+        if (lastName.value.trim().length < 2) {
+            showError(lastName, 'Введите фамилию');
+            isValid = false;
+        } else clearError(lastName);
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+            showError(email, 'Неверный формат почты');
+            isValid = false;
+        } else clearError(email);
+
+        if (password.value.length < 8) {
+            showError(password, 'Минимум 8 символов');
+            isValid = false;
+        } else clearError(password);
+
+        if (confirmPassword && confirmPassword.value !== password.value) {
+            showError(confirmPassword, 'Пароли не совпадают');
+            isValid = false;
+        } else if (confirmPassword) clearError(confirmPassword);
+
+        if (isValid) {
             window.location.href = '/registerFiles/role_select.html';
         }
     });

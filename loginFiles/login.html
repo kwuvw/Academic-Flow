@@ -17,10 +17,6 @@
         с нами
       </h1>
       <form class="form-card">
-        <div class="form-group">
-          <label for="name">Имя</label>
-          <input id="name" class="input-field" type="text" placeholder="Ваше имя" />
-        </div>
         <p id="error-message" style="color: #FF3B30; display: none;"></p>
         <div class="form-group">
           <label for="email">Почта</label>
@@ -32,7 +28,12 @@
         </div>
         <div class="form-group">
           <label for="group">Группа</label>
-          <input id="group" class="input-field" type="text" placeholder="ИС-101" />
+          <select id="group" class="input-field">
+            <option value="" disabled selected>Выберите группу</option>
+            <option value="IS-101">ИС-101</option>
+            <option value="IS-102">ИС-102</option>
+            <option value="AS-205">АС-205</option>
+          </select>
         </div>
 
 

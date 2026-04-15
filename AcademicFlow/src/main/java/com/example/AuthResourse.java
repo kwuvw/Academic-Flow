@@ -43,5 +43,16 @@ public class AuthResourse {
         return Response.status(Response.Status.NOT_FOUND).build();
     }
 
+
+    @GET
+    @Path("/user/{id}")
+    public Response getUser(@PathParam("id") Long id) {
+        User user = User.findById(id);
+        if (user != null) {
+            return Response.ok(user).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
 }
 

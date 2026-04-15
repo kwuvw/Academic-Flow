@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
             errorSpan.remove();
         }
     };
-
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         let isValid = true;
@@ -42,7 +41,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isValid) {
-            window.location.href = '/studentFilesFolder/dashboard_student.html';
+            const loginData = {
+                email: emailInput.value,
+                password: passwordInput.value
+            };
+
+            fetch('/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(loginData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json(); 
+                    } else {
+                        throw new Error('Неверный логин или пароль');
+                    }
+                })
+                .then(user => {
+                    localStorage.setItem('userId', user.id);
+
+                    if (user.role === 'teacher') {
+                        window.location.assign('/teacherFilesFoldter/dashboard_teacher.html');
+                    } else if (user.role === 'student') {
+                        window.location.assign('/studentFilesFolder/dashboard_student.html');
+                    } else {
+                        window.location.assign('/registerFiles/role_select.html');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                    alert(error.message);
+                });
         }
     });
 });

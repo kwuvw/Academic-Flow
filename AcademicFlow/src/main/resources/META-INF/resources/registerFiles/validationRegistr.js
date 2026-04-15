@@ -56,7 +56,35 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (confirmPassword) clearError(confirmPassword);
 
         if (isValid) {
-            window.location.href = '/registerFiles/role_select.html';
+            const UserData = {
+                firstName: firstName.value,
+                lastName: lastName.value,
+                email: email.value,
+                password: password.value
+            }
+
+            fetch('/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(UserData)
+            })
+
+
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("Ошибка регистрации на сервере");
+                    }
+                })
+                .then(user => {
+                    localStorage.setItem('userId', user.id);
+
+                    window.location.href = '/registerFiles/role_select.html';
+                })
+                .catch(error => {
+                    alert("Произошла ошибка: " + error.message);
+                });
         }
     });
 });

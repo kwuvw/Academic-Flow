@@ -616,7 +616,6 @@ h1 {
     position: relative;
 }
 
-/* Красная рамка */
 .input-field.error {
     border: 1px solid #ff3b30 !important;
     outline: none;
@@ -629,4 +628,37 @@ h1 {
     margin-top: 4px;
     min-height: 1.2em; 
     display: block;
+}
+
+.teacher-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 16px; 
+    margin-bottom: 12px;
+}
+
+.teacher-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.teacher-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1d1d1f;
+}
+
+.teacher-email {
+    font-size: 0.9rem;
+    color: #86868b;
+}
+
+.small-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-radius: 20px;
 }

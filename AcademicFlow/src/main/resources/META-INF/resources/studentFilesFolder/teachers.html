@@ -7,6 +7,7 @@
   <title>Edu Platform - Teachers</title>
   <link rel="stylesheet" href="/styles.css" />
   <script src="/dashboard.js"></script>
+  <script src="/studentFilesFolder/teachers_logic.js"></script>
 </head>
 
 <body>
@@ -27,36 +28,20 @@
   <main class="teachers-page">
     <section>
       <h2>Прикрепленные преподаватели:</h2>
-      <div class="teacher-list">
-        <article class="teacher-item">
-          <span class="avatar"></span>
-          <span class="teacher-name">Говоров Михаил Анатольевич</span>
-          <button class="btn-secondary small-btn">Удалить</button>
-        </article>
-        <article class="teacher-item">
-          <span class="avatar">🔥</span>
-          <span class="teacher-name">Павлов Роман Владимирович</span>
-          <button class="btn-secondary small-btn">Удалить</button>
-        </article>
-        <article class="teacher-item">
-          <span class="avatar"></span>
-          <span class="teacher-name">Советникова Алёна Викторовна</span>
-          <button class="btn-secondary small-btn">Удалить</button>
-        </article>
+      <div id="attached-teachers-list" class="teacher-list">
       </div>
     </section>
+
+    <hr class="separator" style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
 
     <section>
       <h2 class="muted-title">Возможные преподаватели:</h2>
       <p class="subtitle">
-        Здесь находятся преподаватели, к которым ты еще не добавился, но они
-        тебя учат. Самое время добавить их!
+        Здесь находятся преподаватели, к которым ты еще не добавился. Самое время добавить их!
       </p>
-      <article class="teacher-item">
-        <span class="avatar"></span>
-        <span class="teacher-name">Варзанова Мария Александровна</span>
-        <button class="btn-primary small-btn">Добавить</button>
-      </article>
+
+      <div id="teachers-container">
+      </div>
     </section>
   </main>
 </body>
